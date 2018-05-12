@@ -49,6 +49,9 @@
         ; if there are more than one chosen pairs, the statements cannot be resolved
         ((and (null? list1) (multiple-elements chosen)) #f)
 
+        ; if there is a contradiction
+        ((and (null? list1) (null? sol)) "CONTRADICTION")
+
         ; if one chosen pair has been found and the process is over
         ((null? list1) (append sol (res-delete list2 (car chosen))))
 
